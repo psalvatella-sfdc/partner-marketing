@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGP Digital Reporting Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+           background: #f3f5f8; color: #181818; font-size: 14px; }
+
+    /* ---- Header ---- */
+    header {
+      background: #0176D3;
+      color: #fff;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .sf-logo { display: flex; align-items: center; flex-shrink: 0; margin-right: 16px; }
+    header h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: -.01em; }
+    header .sub { font-size: 0.76rem; opacity: .75; margin-top: 2px; }
+
+    /* ---- Period banner ---- */
+    .period-banner {
+      background: #fff;
+      border-bottom: 1px solid #dde1e6;
+      padding: 9px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .period-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0176D3;
+      letter-spacing: .01em;
+    }
+    .period-hint {
+      font-size: 0.75rem;
+      color: #666;
+    }
+    .period-hint code {
+      background: #f0f2f5;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.73rem;
+      color: #444;
+    }
+    .btn-load {
+      background: #0176D3;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 16px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s;
+      white-space: nowrap;
+    }
+    .btn-load:hover  { background: #0061b3; }
+    .btn-load:disabled { background: #aaa; cursor: not-allowed; }
+
+    /* ---- Tabs ---- */
+    .tabs {
+      background: #fff;
+      border-bottom: 2px solid #e0e4ea;
+      padding: 0 28px;
+      display: flex;
+      gap: 0;
+    }
+    .tab-btn {
+      padding: 11px 22px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #555;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: #0176D3; }
+    .tab-btn.active { color: #0176D3; border-bottom-color: #0176D3; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ---- Main layout ---- */
+    main { padding: 22px 28px; max-width: 1500px; margin: 0 auto; }
+
+    /* ---- V2MOM progress card ---- */
+    .v2mom-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .v2mom-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+      padding: 18px 20px;
+    }
+    .v2mom-card h3 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #0176D3;
+      margin-bottom: 10px;
+    }
+    .v2mom-numbers {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .v2mom-current {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #181818;
+      line-height: 1;
+    }
+    .v2mom-goal {
+      font-size: 0.82rem;
+      color: #666;
+    }
+    .progress-bar-track {
+      background: #e8edf3;
+      border-radius: 6px;
+      height: 10px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      background: #0176D3;
+      transition: width .4s ease;
+    }
+    .progress-bar-fill.over { background: #2ea44f; }
+    .v2mom-pct {
+      font-size: 0.78rem;
+      color: #444;
+      text-align: right;
+    }
+
+    /* ---- KPI stat tiles ---- */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .kpi-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+      padding: 16px 18px;
+    }
+    .kpi-card .kpi-label {
+      font-size: 0.73rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: #0176D3;
+      margin-bottom: 6px;
+    }
+    .kpi-card .kpi-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #181818;
+      line-height: 1.1;
+    }
+    .kpi-card .kpi-sub {
+      font-size: 0.72rem;
+      color: #888;
+      margin-top: 3px;
+    }
+
+    /* ---- Section titles ---- */
+    .section-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #181818;
+      margin-bottom: 12px;
+      margin-top: 4px;
+    }
+
+    /* ---- Summary table ---- */
+    .summary-wrap { overflow-x: auto; margin-bottom: 28px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    }
+    thead tr { background: #0176D3; color: #fff; }
+    th, td { padding: 8px 13px; text-align: right; white-space: nowrap; }
+    th:first-child, td:first-child { text-align: left; }
+    th { font-size: 0.78rem; font-weight: 600; letter-spacing: .03em; }
+
+    tr.group-header td {
+      background: #044fa0;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: .02em;
+      padding: 7px 13px;
+    }
+    tr.group-total td {
+      background: #eef3fa;
+      font-weight: 700;
+      border-top: 2px solid #c8d8ee;
+    }
+    tr.page-row td { font-size: 0.8rem; }
+    tr.page-row:hover td { background: #f0f5fc; }
+    tr.page-row td.path-cell {
+      font-family: monospace;
+      font-size: 0.72rem;
+      color: #555;
+      padding-left: 26px;
+    }
+    .null { color: #bbb; }
+
+    /* ---- Charts grid ---- */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .chart-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+      padding: 18px 20px;
+    }
+    .chart-card h3 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #181818;
+      margin-bottom: 12px;
+    }
+    .chart-wrap { position: relative; height: 200px; }
+
+    /* ---- Misc ---- */
+    .empty { color: #999; font-size: 0.88rem; text-align: center; padding: 40px 0; }
+    .threshold-note { font-size: 0.73rem; color: #999; margin-top: 6px; padding-left: 2px; }
+    .sources-note { font-size: 0.73rem; color: #888; margin-top: 6px; font-style: italic; }
+
+    /* ---- Form-specific ---- */
+    .form-scope-note {
+      background: #eef3fa;
+      border-left: 3px solid #0176D3;
+      border-radius: 0 6px 6px 0;
+      padding: 9px 14px;
+      font-size: 0.8rem;
+      color: #444;
+      margin-bottom: 22px;
+    }
+    .form-scope-note strong { color: #0176D3; }
+    tr.v2mom-group td { background: #e6f0fb; font-weight: 700; }
+    tr.v2mom-group td .v2mom-badge {
+      display: inline-block;
+      background: #0176D3;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-left: 7px;
+      vertical-align: middle;
+      text-transform: uppercase;
+    }
+    /* CK sub-page table */
+    .ck-sub-wrap { margin-top: 24px; margin-bottom: 28px; }
+    .ck-sub-wrap .section-title { margin-bottom: 10px; }
+    table.ck-sub-tbl thead tr { background: #044fa0; }
+    tr.ck-top-row td { background: #e6f0fb; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<!-- ======================================================= HEADER -->
+<header>
+  <div class="sf-logo">
+    <svg width="50" height="35" viewBox="3 6 72 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Salesforce">
+      <path d="M38.5 10.5a14.5 14.5 0 0 1 10.4 4.3 12.8 12.8 0 0 1 8.5-3.2 12.9 12.9 0 0 1 12.8 12 10.5 10.5 0 0 1-.1 21H18.2A13.2 13.2 0 0 1 5 31.4a13.2 13.2 0 0 1 13.2-13.2c.5 0 1 0 1.5.1A14.5 14.5 0 0 1 38.5 10.5z" fill="white"/>
+    </svg>
+  </div>
+  <div>
+    <h1>AGP Digital Reporting</h1>
+    <div class="sub">Consulting Partners Hub · FY2027 YTD</div>
+  </div>
+</header>
+
+<!-- ======================================================= PERIOD BANNER -->
+<div class="period-banner">
+  <div>
+    <div class="period-label">Data period: Feb 1, 2026 – Jul 17, 2026 (FY2027 YTD)</div>
+    <div class="period-hint">
+      Refresh: run <code>python3 tableau_agp_pull.py --end 2026-07-17</code> then reload
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span id="lastUpdated" style="font-size:.76rem;color:#888"></span>
+    <button class="btn-load" id="loadBtn" onclick="loadData()">Reload Data</button>
+  </div>
+</div>
+
+<!-- ======================================================= TABS -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('traffic', this)">Traffic Performance</button>
+  <button class="tab-btn"        onclick="switchTab('form',    this)">Form Performance</button>
+</div>
+
+<!-- ======================================================= TRAFFIC TAB -->
+<div class="tab-panel active" id="tab-traffic">
+<main>
+
+  <!-- V2MOM -->
+  <div class="v2mom-row" id="trafficV2mom">
+    <div class="v2mom-card">
+      <h3>V2MOM — Total Pageviews</h3>
+      <div class="v2mom-numbers">
+        <span class="v2mom-current" id="pvCurrent">—</span>
+        <span class="v2mom-goal">/ 75,000 goal</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="pvBar" style="width:0%"></div>
+      </div>
+      <div class="v2mom-pct" id="pvPct">—</div>
+    </div>
+  </div>
+
+  <!-- KPI tiles -->
+  <div class="kpi-row" id="trafficKpis">
+    <div class="kpi-card">
+      <div class="kpi-label">Total Sessions</div>
+      <div class="kpi-value" id="kpiSessions">—</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Avg Engagement Rate</div>
+      <div class="kpi-value" id="kpiEngagement">—</div>
+      <div class="kpi-sub">across matched pages</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Avg Time on Page</div>
+      <div class="kpi-value" id="kpiAvgTime">—</div>
+      <div class="kpi-sub">weighted by pageviews</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Page Groups</div>
+      <div class="kpi-value" id="kpiGroups">5</div>
+      <div class="kpi-sub">tracked</div>
+    </div>
+  </div>
+
+  <!-- Traffic Sources -->
+  <div class="section-title">Traffic by Page Group</div>
+  <div class="charts-grid">
+    <div class="chart-card">
+      <h3>Pageviews by Group</h3>
+      <div class="chart-wrap"><canvas id="pvByGroupChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Sessions by Group</h3>
+      <div class="chart-wrap"><canvas id="sessByGroupChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Avg Time on Page by Group (seconds)</h3>
+      <div class="chart-wrap"><canvas id="timeByGroupChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <h3>Engagement Rate by Group (%)</h3>
+      <div class="chart-wrap"><canvas id="engByGroupChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Detail table -->
+  <div class="section-title">Detail by Page</div>
+  <div class="summary-wrap">
+    <table id="trafficTbl">
+      <thead>
+        <tr>
+          <th>Page</th>
+          <th>Page Views</th>
+          <th>Sessions</th>
+          <th>Engagement Rate</th>
+          <th>Avg Time on Page</th>
+        </tr>
+      </thead>
+      <tbody id="trafficTbody">
+        <tr><td colspan="5" class="empty">Loading…</td></tr>
+      </tbody>
+    </table>
+    <p class="threshold-note">— = below reporting threshold (page did not rank in top results for this date range)</p>
+  </div>
+
+</main>
+</div><!-- /tab-traffic -->
+
+<!-- ======================================================= FORM TAB -->
+<div class="tab-panel" id="tab-form">
+<main>
+
+  <!-- V2MOM progress bar -->
+  <div class="v2mom-row">
+    <div class="v2mom-card">
+      <h3>V2MOM — Campaign Kits Form Completions</h3>
+      <div class="v2mom-numbers">
+        <span class="v2mom-current" id="ckCurrent">—</span>
+        <span class="v2mom-goal">/ 250 goal</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="ckBar" style="width:0%"></div>
+      </div>
+      <div class="v2mom-pct" id="ckPct">—</div>
+    </div>
+  </div>
+
+  <!-- KPI tiles: counts -->
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-label">Pageviews</div>
+      <div class="kpi-value" id="ckKpiPv">—</div>
+      <div class="kpi-sub">:…:campaign-kits</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Form Views</div>
+      <div class="kpi-value" id="ckKpiFv">—</div>
+      <div class="kpi-sub">users who saw the form</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Form Completions</div>
+      <div class="kpi-value" id="ckKpiFc">—</div>
+      <div class="kpi-sub">V2MOM metric</div>
+    </div>
+  </div>
+
+  <!-- KPI tiles: conversion rates -->
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-label">PV → FV %</div>
+      <div class="kpi-value" id="ckKpiPvFv">—</div>
+      <div class="kpi-sub">pageview to form view</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">FV → FC %</div>
+      <div class="kpi-value" id="ckKpiFvFc">—</div>
+      <div class="kpi-sub">form view to completion</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">PV → FC %</div>
+      <div class="kpi-value" id="ckKpiPvFc">—</div>
+      <div class="kpi-sub">pageview to completion</div>
+    </div>
+  </div>
+
+  <p class="sources-note" style="margin-top:4px">Source: Campaign Kits Forms YTD custom view · Feb 1 – Jul 17, 2026</p>
+
+</main>
+</div><!-- /tab-form -->
+
+<script>
+// ============================================================
+// Password gate
+// ============================================================
+(function() {
+  if (sessionStorage.getItem('agp_auth') === '1') return;
+  const pw = prompt('Enter password to access AGP Digital Reporting:');
+  if (pw === 'Astro') {
+    sessionStorage.setItem('agp_auth', '1');
+  } else {
+    document.documentElement.innerHTML = '<body style="margin:0;background:#fff;display:flex;align-items:center;justify-content:center;height:100vh"><p style="font-family:sans-serif;color:#444;font-size:1rem">Access denied</p></body>';
+    throw new Error('Access denied');
+  }
+})();
+
+// ============================================================
+// Utilities
+// ============================================================
+function fmtNum(v) {
+  if (v === null || v === undefined) return '<span class="null">—</span>';
+  return Number(v).toLocaleString();
+}
+function fmtPct(v) {
+  if (v === null || v === undefined) return '<span class="null">—</span>';
+  return Number(v).toFixed(1) + '%';
+}
+function fmtTime(v) {
+  if (v === null || v === undefined) return '<span class="null">—</span>';
+  const s = Math.round(v);
+  if (s < 60) return s + 's';
+  return Math.floor(s / 60) + 'm ' + (s % 60) + 's';
+}
+function fmtTimeVal(v) {
+  if (v === null || v === undefined) return '—';
+  const s = Math.round(v);
+  if (s < 60) return s + 's';
+  return Math.floor(s / 60) + 'm ' + (s % 60) + 's';
+}
+function shortPath(p) {
+  const parts = p.split(':').filter(Boolean);
+  return parts.length > 2 ? '…:' + parts.slice(-2).join(':') : p;
+}
+function fmtTimestamp(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (isNaN(d)) return iso;
+  return d.toLocaleString('en-US', {
+    month: 'short', day: 'numeric', year: 'numeric',
+    hour: 'numeric', minute: '2-digit', hour12: true,
+  });
+}
+function setProgress(barId, pctId, current, goal) {
+  const pct = goal > 0 ? Math.min(current / goal * 100, 100) : 0;
+  const over = current >= goal;
+  const bar = document.getElementById(barId);
+  if (bar) {
+    bar.style.width = pct.toFixed(1) + '%';
+    if (over) bar.classList.add('over'); else bar.classList.remove('over');
+  }
+  const pctEl = document.getElementById(pctId);
+  if (pctEl) pctEl.textContent = pct.toFixed(1) + '% of goal';
+}
+
+// ============================================================
+// Chart registry
+// ============================================================
+const CHARTS = {};
+function mkChart(id, cfg) {
+  if (CHARTS[id]) { CHARTS[id].destroy(); delete CHARTS[id]; }
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  CHARTS[id] = new Chart(canvas.getContext('2d'), cfg);
+}
+
+const SF_BLUE   = '#0176D3';
+const SF_BLUES  = ['#0176D3','#0a549e','#1d9aed','#044fa0','#47b2ff','#78ccff'];
+const SF_GREEN  = '#2ea44f';
+
+// ============================================================
+// Tab switching
+// ============================================================
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ============================================================
+// Render: Traffic tab
+// ============================================================
+function renderTraffic(data) {
+  const groups = data.traffic_groups || [];
+  const goals  = data.goals || {};
+
+  // Totals
+  let totalPv = 0, totalSess = 0, totalDur = 0, totalPvForAvg = 0;
+  let engSum = 0, engCount = 0;
+  groups.forEach(g => {
+    totalPv   += g.total.pageviews   || 0;
+    totalSess += g.total.sessions    || 0;
+    totalDur  += g.total.page_duration_seconds || 0;
+    totalPvForAvg += g.total.pageviews || 0;
+    g.pages.forEach(p => {
+      if (p.engagement_rate !== null && p.engagement_rate !== undefined) {
+        engSum += p.engagement_rate;
+        engCount++;
+      }
+    });
+  });
+  const weightedAvgTime = totalPvForAvg > 0 ? totalDur / totalPvForAvg : null;
+
+  // V2MOM
+  document.getElementById('pvCurrent').textContent = totalPv.toLocaleString();
+  setProgress('pvBar', 'pvPct', totalPv, goals.total_pageviews || 75000);
+
+  // KPIs
+  document.getElementById('kpiSessions').textContent   = totalSess.toLocaleString();
+  document.getElementById('kpiEngagement').textContent = engCount > 0 ? (engSum / engCount).toFixed(1) + '%' : '—';
+  document.getElementById('kpiAvgTime').textContent     = weightedAvgTime ? fmtTimeVal(weightedAvgTime) : '—';
+
+  // Group-level chart data (use short label — strip "GROUP N — " prefix)
+  const labels = groups.map(g => g.label.replace(/^GROUP \d+ — /, ''));
+  const pvData   = groups.map(g => g.total.pageviews   || 0);
+  const sessData = groups.map(g => g.total.sessions    || 0);
+  const timeData = groups.map(g => g.total.avg_time_on_page || 0);
+
+  // Engagement rate per group: average of page-level rates
+  const engData = groups.map(g => {
+    const valid = g.pages.filter(p => p.engagement_rate !== null && p.engagement_rate !== undefined);
+    if (!valid.length) return 0;
+    return valid.reduce((s, p) => s + p.engagement_rate, 0) / valid.length;
+  });
+
+  const barOpts = (label, color) => ({
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{ label, data: [], backgroundColor: SF_BLUES, borderRadius: 4 }],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, ticks: { font: { size: 11 } } },
+        x: { ticks: { font: { size: 11 }, maxRotation: 25 } },
+      },
+    },
+  });
+
+  const pvCfg = barOpts('Pageviews', SF_BLUE);
+  pvCfg.data.datasets[0].data = pvData;
+  mkChart('pvByGroupChart', pvCfg);
+
+  const sessCfg = barOpts('Sessions', '#0a549e');
+  sessCfg.data.datasets[0].data = sessData;
+  sessCfg.data.datasets[0].backgroundColor = SF_BLUES.map((_, i) => SF_BLUES[(i + 1) % SF_BLUES.length]);
+  mkChart('sessByGroupChart', sessCfg);
+
+  const timeCfg = barOpts('Avg Time (s)', '#1d9aed');
+  timeCfg.data.datasets[0].data = timeData;
+  timeCfg.data.datasets[0].backgroundColor = '#1d9aed';
+  mkChart('timeByGroupChart', timeCfg);
+
+  const engCfg = barOpts('Engagement Rate (%)', '#044fa0');
+  engCfg.data.datasets[0].data = engData.map(v => +v.toFixed(1));
+  engCfg.data.datasets[0].backgroundColor = '#044fa0';
+  mkChart('engByGroupChart', engCfg);
+
+  // Detail table
+  const tbody = document.getElementById('trafficTbody');
+  tbody.innerHTML = '';
+  groups.forEach(g => {
+    const hdr = document.createElement('tr');
+    hdr.className = 'group-header';
+    hdr.innerHTML = `<td colspan="5">${g.label}</td>`;
+    tbody.appendChild(hdr);
+
+    g.pages.forEach(p => {
+      const tr = document.createElement('tr');
+      tr.className = 'page-row';
+      tr.innerHTML = `
+        <td class="path-cell" title="${p.path}">${shortPath(p.path)}</td>
+        <td>${fmtNum(p.pageviews)}</td>
+        <td>${fmtNum(p.sessions)}</td>
+        <td>${fmtPct(p.engagement_rate)}</td>
+        <td>${fmtTime(p.avg_time_on_page)}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    const t = g.total;
+    const tot = document.createElement('tr');
+    tot.className = 'group-total';
+    tot.innerHTML = `
+      <td>GROUP TOTAL</td>
+      <td>${fmtNum(t.pageviews)}</td>
+      <td>${fmtNum(t.sessions)}</td>
+      <td><span class="null">—</span></td>
+      <td>${fmtTime(t.avg_time_on_page)}</td>
+    `;
+    tbody.appendChild(tot);
+  });
+}
+
+// ============================================================
+// Render: Form tab
+// ============================================================
+function renderForm(data) {
+  const top   = (data.campaign_kits_form || {}).top_page || {};
+  const goals = data.goals || {};
+
+  const fc = top.form_completions || 0;
+  const fv = top.form_views       || 0;
+  const pv = top.page_views       || 0;
+
+  document.getElementById('ckCurrent').textContent = fc.toLocaleString();
+  setProgress('ckBar', 'ckPct', fc, goals.form_completions || 250);
+
+  document.getElementById('ckKpiPv').textContent   = pv ? pv.toLocaleString() : '—';
+  document.getElementById('ckKpiFv').textContent   = fv ? fv.toLocaleString() : '—';
+  document.getElementById('ckKpiFc').textContent   = fc ? fc.toLocaleString() : '—';
+  document.getElementById('ckKpiPvFv').textContent = top.pv_to_fv_pct != null ? top.pv_to_fv_pct.toFixed(1) + '%' : '—';
+  document.getElementById('ckKpiFvFc').textContent = top.fv_to_fc_pct != null ? top.fv_to_fc_pct.toFixed(1) + '%' : '—';
+  document.getElementById('ckKpiPvFc').textContent = top.pv_to_fc_pct != null ? top.pv_to_fc_pct.toFixed(1) + '%' : '—';
+}
+
+// ============================================================
+// Load data
+// ============================================================
+async function loadData() {
+  const btn = document.getElementById('loadBtn');
+  btn.disabled = true;
+  btn.textContent = 'Loading…';
+  try {
+    const resp = await fetch('agp_data.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const json = await resp.json();
+    renderTraffic(json);
+    renderForm(json);
+    const ts = json.meta && json.meta.generated_at ? fmtTimestamp(json.meta.generated_at) : '';
+    if (ts) document.getElementById('lastUpdated').textContent = 'Data as of ' + ts;
+  } catch (err) {
+    const tbodyErr = document.getElementById('trafficTbody');
+    if (tbodyErr) tbodyErr.innerHTML = `<tr><td colspan="5" class="empty">Error: ${err.message}</td></tr>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Reload Data';
+  }
+}
+
+loadData();
+</script>
+</body>
+</html>
