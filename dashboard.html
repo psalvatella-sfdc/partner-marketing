@@ -323,6 +323,7 @@
 <div class="tabs">
   <button class="tab-btn active" onclick="switchTab('traffic', this)">Traffic Performance</button>
   <button class="tab-btn"        onclick="switchTab('form',    this)">Form Performance</button>
+  <button class="tab-btn" onclick="switchTab('clicks', this)">Page Clicks</button>
 </div>
 
 <!-- ======================================================= TRAFFIC TAB -->
@@ -471,6 +472,18 @@
   <p class="sources-note" style="margin-top:4px" id="sources-note">Source: Campaign Kits Forms YTD custom view · Feb 1 – <span id="sources-note-date"></span></p>
 
 </main>
+
+<!-- ==================================================== PAGE CLICKS TAB -->
+<div class="tab-panel" id="tab-clicks">
+<main>
+  ## Content Click Performance
+  <p class="sources-note">Clicks by page/link — Consulting Partners Hub Engagement YTD custom view</p>
+  <table class="clicks-table" style="width:100%;border-collapse:collapse;margin-top:16px">
+    <thead><tr><th style="text-align:left;padding:8px">Page / Link</th><th style="text-align:right;padding:8px">Clicks</th></tr></thead>
+    <tbody id="clicks-tbody"></tbody>
+  </table>
+</main>
+</div><!-- /tab-clicks -->
 </div><!-- /tab-form -->
 
 <script>
@@ -564,6 +577,14 @@ function switchTab(name, btn) {
 // ============================================================
 // Render: Traffic tab
 // ============================================================
+function renderPageClicks(data) {
+  const tbody = document.getElementById("clicks-tbody");
+  if (!tbody || !data.page_clicks) return;
+  tbody.innerHTML = data.page_clicks
+    .filter(row => row.label !== "All")
+    .map(row => `<tr><td style="padding:6px 8px;border-top:1px solid #eee">${row.label}</td><td style="text-align:right;padding:6px 8px;border-top:1px solid #eee">${(row.clicks||0).toLocaleString()}</td></tr>`)
+    .join("");
+}
 function renderTraffic(data) {
   const groups = data.traffic_groups || [];
   const goals  = data.goals || {};
@@ -713,6 +734,7 @@ async function loadData() {
     const json = await resp.json();
     renderTraffic(json);
     renderForm(json);
+    renderPageClicks(json);
     if (json.meta) {
       const endDate = fmtTimestamp ? fmtTimestamp(json.meta.end) : json.meta.end;
       const pl = document.getElementById('period-label');
