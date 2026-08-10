@@ -6,7 +6,7 @@
     "start": "2026-02-01",
     "end": "2026-08-10",
     "period_label": "FY2027 YTD",
-    "generated_at": "2026-08-10T20:03:22.609191Z"
+    "generated_at": "2026-08-10T21:46:48.140895Z"
   },
   "goals": {
     "total_pageviews": 75000,
@@ -300,5 +300,51 @@
       "fv_to_fc_pct": 55.6,
       "pv_to_fc_pct": 5.1
     }
-  }
+  },
+  "page_clicks": [
+    {
+      "label": "All",
+      "clicks": 55541
+    },
+    {
+      "label": "Turn ideas into a business",
+      "clicks": 4073
+    },
+    {
+      "label": "(not set)",
+      "clicks": 2889
+    },
+    {
+      "label": "Grow your business in the agentic era as a Salesforce partner",
+      "clicks": 2645
+    },
+    {
+      "label": "What's Next?",
+      "clicks": 1989
+    },
+    {
+      "label": "Salesforce Consulting Partner Program: Maximize Growth in the New Agentic Era",
+      "clicks": 1589
+    },
+    {
+      "label": "Transform your expertise into a scalable business with Agentforce",
+      "clicks": 1378
+    },
+    {
+      "label": "Agentic Enterprise Partner Guidebook</strong",
+      "clicks": 1160
+    },
+    {
+      "label": "Your Salesforce Technology Partner journey starts here",
+      "clicks": 1111
+    },
+    {
+      "label": "Milestone one: unlock your partner journey",
+      "clicks": 983
+    },
+    {
+      "label": "Consulting for the agentic era",
+      "clicks": 950
+    }
+  ]
 }
