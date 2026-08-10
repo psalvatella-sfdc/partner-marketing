@@ -308,7 +308,7 @@
 <!-- ======================================================= PERIOD BANNER -->
 <div class="period-banner">
   <div>
-    <div class="period-label">Data period: Feb 1, 2026 – Jul 17, 2026 (FY2027 YTD)</div>
+    <div class="period-label" id="period-label">Data period: Feb 1, 2026 – Jul 17, 2026 (FY2027 YTD)</div>
     <div class="period-hint">
       Refresh: run <code>python3 tableau_agp_pull.py --end 2026-07-17</code> then reload
     </div>
@@ -468,7 +468,7 @@
     </div>
   </div>
 
-  <p class="sources-note" style="margin-top:4px">Source: Campaign Kits Forms YTD custom view · Feb 1 – Jul 17, 2026</p>
+  <p class="sources-note" style="margin-top:4px" id="sources-note">Source: Campaign Kits Forms YTD custom view · Feb 1 – <span id="sources-note-date"></span></p>
 
 </main>
 </div><!-- /tab-form -->
@@ -713,6 +713,13 @@ async function loadData() {
     const json = await resp.json();
     renderTraffic(json);
     renderForm(json);
+    if (json.meta) {
+      const endDate = fmtTimestamp ? fmtTimestamp(json.meta.end) : json.meta.end;
+      const pl = document.getElementById('period-label');
+      if (pl) pl.textContent = 'Data period: Feb 1, 2026 – ' + endDate + ' (' + json.meta.period_label + ')';
+      const sd = document.getElementById('sources-note-date');
+      if (sd) sd.textContent = endDate;
+    }
     const ts = json.meta && json.meta.generated_at ? fmtTimestamp(json.meta.generated_at) : '';
     if (ts) document.getElementById('lastUpdated').textContent = 'Data as of ' + ts;
   } catch (err) {
