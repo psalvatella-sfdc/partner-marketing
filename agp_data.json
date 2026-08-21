@@ -6,7 +6,7 @@
     "start": "2026-02-01",
     "end": "2026-08-21",
     "period_label": "FY2027 YTD",
-    "generated_at": "2026-08-21T20:25:20.880251Z"
+    "generated_at": "2026-08-21T21:02:49.777607Z"
   },
   "goals": {
     "total_pageviews": 75000,
@@ -204,13 +204,117 @@
           "engagement_rate": 31.0,
           "page_duration_seconds": 15267.0,
           "avg_time_on_page": 508.9
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:slack:messaging-copy-blocks",
+          "pageviews": 14.0,
+          "sessions": 13.0,
+          "engagement_rate": 23.1,
+          "page_duration_seconds": 4965.0,
+          "avg_time_on_page": 354.6
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-activation",
+          "pageviews": 94.0,
+          "sessions": 75.0,
+          "engagement_rate": 38.7,
+          "page_duration_seconds": 3386.0,
+          "avg_time_on_page": 36.0
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-activation:partner-kit",
+          "pageviews": 69.0,
+          "sessions": 69.0,
+          "engagement_rate": 43.5,
+          "page_duration_seconds": 12222.0,
+          "avg_time_on_page": 177.1
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-activation:workshop",
+          "pageviews": 53.0,
+          "sessions": 39.0,
+          "engagement_rate": 33.3,
+          "page_duration_seconds": 5081.0,
+          "avg_time_on_page": 95.9
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-service",
+          "pageviews": 130.0,
+          "sessions": 107.0,
+          "engagement_rate": 35.5,
+          "page_duration_seconds": 9904.0,
+          "avg_time_on_page": 76.2
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-service:email-and-landing",
+          "pageviews": 25.0,
+          "sessions": 27.0,
+          "engagement_rate": 33.3,
+          "page_duration_seconds": 3896.0,
+          "avg_time_on_page": 155.8
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-service:messaging-copy-blocks",
+          "pageviews": 55.0,
+          "sessions": 51.0,
+          "engagement_rate": 49.0,
+          "page_duration_seconds": 15910.0,
+          "avg_time_on_page": 289.3
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-service:sales-readiness",
+          "pageviews": 43.0,
+          "sessions": 34.0,
+          "engagement_rate": 38.2,
+          "page_duration_seconds": 3821.0,
+          "avg_time_on_page": 88.9
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-service:social-and-paid-media-assets",
+          "pageviews": 25.0,
+          "sessions": 24.0,
+          "engagement_rate": 29.2,
+          "page_duration_seconds": 1860.0,
+          "avg_time_on_page": 74.4
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:dreamforce",
+          "pageviews": 78.0,
+          "sessions": 68.0,
+          "engagement_rate": 30.9,
+          "page_duration_seconds": 5059.0,
+          "avg_time_on_page": 64.9
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:dreamforce:email-and-landing",
+          "pageviews": 27.0,
+          "sessions": 30.0,
+          "engagement_rate": 33.3,
+          "page_duration_seconds": 3566.0,
+          "avg_time_on_page": 132.1
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:dreamforce:messaging-copy-blocks",
+          "pageviews": 30.0,
+          "sessions": 33.0,
+          "engagement_rate": 30.3,
+          "page_duration_seconds": 4766.0,
+          "avg_time_on_page": 158.9
+        },
+        {
+          "path": "partners:consulting-partners-hub:campaign-kits:launchpad:dreamforce:social-media-posts",
+          "pageviews": 47.0,
+          "sessions": 50.0,
+          "engagement_rate": 32.0,
+          "page_duration_seconds": 11488.0,
+          "avg_time_on_page": 244.4
         }
       ],
       "total": {
-        "pageviews": 6182.0,
-        "sessions": 5467.0,
-        "page_duration_seconds": 1424713.0,
-        "avg_time_on_page": 230.5
+        "pageviews": 6872.0,
+        "sessions": 6087.0,
+        "page_duration_seconds": 1510637.0,
+        "avg_time_on_page": 219.8
       }
     },
     {
