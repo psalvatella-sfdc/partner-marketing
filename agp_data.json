@@ -6,7 +6,7 @@
     "start": "2026-02-01",
     "end": "2026-08-21",
     "period_label": "FY2027 YTD",
-    "generated_at": "2026-08-21T19:09:07.491410Z"
+    "generated_at": "2026-08-21T20:03:43.075002Z"
   },
   "goals": {
     "total_pageviews": 75000,
@@ -280,11 +280,19 @@
           "engagement_rate": 26.8,
           "page_duration_seconds": 247291.0,
           "avg_time_on_page": 173.2
+        },
+        {
+          "path": "fde-partner-network (AgentExchange Dashboard)",
+          "pageviews": 8391.0,
+          "sessions": 6638.0,
+          "engagement_rate": null,
+          "page_duration_seconds": null,
+          "avg_time_on_page": null
         }
       ],
       "total": {
-        "pageviews": 1428.0,
-        "sessions": 1300.0,
+        "pageviews": 9819.0,
+        "sessions": 7938.0,
         "page_duration_seconds": 247291.0,
         "avg_time_on_page": 173.2
       }
