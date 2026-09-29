@@ -324,6 +324,7 @@
   <button class="tab-btn active" onclick="switchTab('traffic', this)">Traffic Performance</button>
   <button class="tab-btn"        onclick="switchTab('form',    this)">Form Performance</button>
   <button class="tab-btn" onclick="switchTab('clicks', this)">Page Clicks</button>
+  <button class="tab-btn" onclick="switchTab('heatmap', this)">Click Heatmap</button>
 </div>
 
 <!-- ======================================================= TRAFFIC TAB -->
@@ -486,6 +487,11 @@
   </table>
 </main>
 </div><!-- /tab-clicks -->
+<div class="tab-panel" id="tab-heatmap">
+  ## Consulting Partners Hub &mdash; Click Heatmap
+  <p style="color:#666;font-size:0.9rem;">Click intensity by page section on www.salesforce.com/partners/consulting-partners-hub/</p>
+  <div id="heatmap-container" style="margin-top:16px;"></div>
+</div><!-- /tab-heatmap -->
 
 <script>
 // ============================================================
@@ -578,6 +584,40 @@ function switchTab(name, btn) {
 // ============================================================
 // Render: Traffic tab
 // ============================================================
+const HEATMAP_SECTIONS = [
+  {name: "5-Tab Bar", color: "#d73027", labels: ["System of Agency","Headless 360","System of Engagement","System of Work","System of Context"]},
+  {name: "Tab-Inner Content", color: "#fc8d59", labels: ["Headless 360 Pocket Guide","Headless 360 Partner Decoded","The Headless 360 Opportunity for Partners","Salesforce Headless 360: Partner Enablement Workshop","Unlocking the Power of Slack for Partners","Headless 360 Deep Dive: The Partner's Role & Customer Stories","Introducing Salesforce Headless 360","Agentforce Implementation Ready curriculum","Agentforce Labs Product Decoded","Agentforce Sales Pocket Guide","Agentforce Marketing Pocket Guide","Meet the new Slack where AI works: Partner enablement webinar","Agentforce Commerce Pocket Guide","Agentforce Field Service and Operations Product Decoded","Data 360 Implementation Ready curriculum","Data 360 Technical Release Enablement","Meet the new Slack where AI works: Partner webinar slides","Headless Experience Layer overview","Pricing Decoded: Data 360 Flex Credits vs Profiles","Slack Partner Pocket Guide","Agentforce IT Service overview","Agentforce overview","Salesforce Headless Commerce page","Salesforce Platform Deep Dive: The Partner's Role & Customer Stories","The Salesforce Platform Opportunity for Partners"]},
+  {name: "Partner Resources Cards", color: "#fee08b", labels: ["Marketing Campaign Kits","Agentic Enterprise Guidebook","Consulting Partner Program","Partner Branding Guide"]},
+  {name: "Featured Banner", color: "#91cf60", labels: ["Press release","Big ideas. Bold experiences. Expert insights.","Access a partner-exclusive Dreamforce discount and save $500!","Access a partner-exclusive Dreamforce discount!"]},
+  {name: "Ecosystem Unscripted Videos", color: "#1a9850", labels: ["New Series: Ecosystem Unscripted - An inside look at the Headless 360 opportunity for partners","New Series: Ecosystem Unscripted - An inside look at the Salesforce Platform opportunity for partners"]},
+  {name: "Community & Events Footer", color: "#4575b4", labels: ["Partner Community","Enablement Events"]},
+];
+
+function renderClickHeatmap(data) {
+  const container = document.getElementById("heatmap-container");
+  if (!container) return;
+  const rows = (data && data.page_clicks) || [];
+  const byLabel = {};
+  rows.forEach(r => { byLabel[r.label] = r.clicks || 0; });
+
+  const sectionTotals = HEATMAP_SECTIONS.map(sec => {
+    const total = sec.labels.reduce((sum, l) => sum + (byLabel[l] || 0), 0);
+    return {name: sec.name, color: sec.color, total: total};
+  });
+  const maxTotal = Math.max(...sectionTotals.map(s => s.total), 1);
+
+  let html = "";
+  sectionTotals.forEach(s => {
+    const intensity = s.total / maxTotal;
+    const height = 40 + Math.round(intensity * 80);
+    html += `<div style="background:${s.color};opacity:${0.35 + intensity * 0.65};border-radius:8px;padding:14px 18px;margin-bottom:8px;height:${height}px;display:flex;align-items:center;justify-content:space-between;color:#222;font-weight:600;">
+      <span>${s.name}</span><span>${s.total.toLocaleString()} clicks</span>
+    </div>`;
+  });
+  html += `<p style="color:#888;font-size:0.85rem;margin-top:12px;">Note: some rows in the source data are AI concierge chat interactions or unused zero-click nav items &mdash; these are excluded from this heatmap as they are not placeable page-section clicks.</p>`;
+  container.innerHTML = html;
+}
+
 function renderPageClicks(data) {
   const tbody = document.getElementById("clicks-tbody");
   const totalBox = document.getElementById("clicks-total-box");
@@ -741,6 +781,7 @@ async function loadData() {
     renderTraffic(json);
     renderForm(json);
     renderPageClicks(json);
+    renderClickHeatmap(json);
     if (json.meta) {
       const endDate = fmtTimestamp ? fmtTimestamp(json.meta.end) : json.meta.end;
       const pl = document.getElementById('period-label');
