@@ -6,7 +6,7 @@
     "start": "2026-02-01",
     "end": "2026-11-16",
     "period_label": "FY2027 YTD",
-    "generated_at": "2026-11-17T19:57:34.684220Z"
+    "generated_at": "2026-11-17T20:47:23.168890Z"
   },
   "goals": {
     "total_pageviews": 75000,
@@ -386,6 +386,30 @@
           "avg_time_on_page": 197.9
         },
         {
+          "path": "partners",
+          "pageviews": 21388.0,
+          "sessions": 20001.0,
+          "engagement_rate": 35.6,
+          "page_duration_seconds": 5605902.0,
+          "avg_time_on_page": 262.1
+        },
+        {
+          "path": "partners:ecosystem-unscripted",
+          "pageviews": 315.0,
+          "sessions": 335.0,
+          "engagement_rate": 20.0,
+          "page_duration_seconds": 263776.0,
+          "avg_time_on_page": 837.4
+        },
+        {
+          "path": "appexchange:consulting",
+          "pageviews": 401.0,
+          "sessions": 398.0,
+          "engagement_rate": null,
+          "page_duration_seconds": null,
+          "avg_time_on_page": null
+        },
+        {
           "path": "fde-partner-network (AgentExchange Dashboard)",
           "pageviews": 11481.0,
           "sessions": 9128.0,
@@ -395,10 +419,10 @@
         }
       ],
       "total": {
-        "pageviews": 17426.0,
-        "sessions": 14685.0,
-        "page_duration_seconds": 1176592.0,
-        "avg_time_on_page": 197.9
+        "pageviews": 39530.0,
+        "sessions": 35419.0,
+        "page_duration_seconds": 7046270.0,
+        "avg_time_on_page": 251.2
       }
     },
     {
