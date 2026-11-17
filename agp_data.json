@@ -4,9 +4,9 @@
     "traffic_custom_view_id": "b7d2c170-697a-4469-a2ee-9c629874ff04",
     "form_custom_view_id": "0cb9a152-c879-4f73-85f6-03245e9d434f",
     "start": "2026-02-01",
-    "end": "2026-10-12",
+    "end": "2026-11-16",
     "period_label": "FY2027 YTD",
-    "generated_at": "2026-10-13T19:01:00.353541Z"
+    "generated_at": "2026-11-17T18:35:28.228782Z"
   },
   "goals": {
     "total_pageviews": 75000,
@@ -19,18 +19,18 @@
       "pages": [
         {
           "path": "partners:consulting-partners-hub",
-          "pageviews": 3701.0,
-          "sessions": 3709.0,
-          "engagement_rate": 21.7,
-          "page_duration_seconds": 1814282.0,
-          "avg_time_on_page": 490.2
+          "pageviews": 4192.0,
+          "sessions": 4202.0,
+          "engagement_rate": 22.7,
+          "page_duration_seconds": 1925604.0,
+          "avg_time_on_page": 459.4
         }
       ],
       "total": {
-        "pageviews": 3701.0,
-        "sessions": 3709.0,
-        "page_duration_seconds": 1814282.0,
-        "avg_time_on_page": 490.2
+        "pageviews": 4192.0,
+        "sessions": 4202.0,
+        "page_duration_seconds": 1925604.0,
+        "avg_time_on_page": 459.4
       }
     },
     {
@@ -39,19 +39,19 @@
       "pages": [
         {
           "path": "partners:consulting-partners-hub:campaign-kits",
-          "pageviews": 5526.0,
-          "sessions": 4917.0,
-          "engagement_rate": 23.8,
-          "page_duration_seconds": 1079599.0,
-          "avg_time_on_page": 195.4
+          "pageviews": 6562.0,
+          "sessions": 5769.0,
+          "engagement_rate": 23.5,
+          "page_duration_seconds": 1179680.0,
+          "avg_time_on_page": 179.8
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad",
-          "pageviews": 1381.0,
-          "sessions": 1181.0,
-          "engagement_rate": 37.3,
-          "page_duration_seconds": 107843.0,
-          "avg_time_on_page": 78.1
+          "pageviews": 1612.0,
+          "sessions": 1386.0,
+          "engagement_rate": 37.5,
+          "page_duration_seconds": 128535.0,
+          "avg_time_on_page": 79.7
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce360-life-sciences",
@@ -95,51 +95,51 @@
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:data360",
-          "pageviews": 266.0,
-          "sessions": 244.0,
-          "engagement_rate": 28.3,
-          "page_duration_seconds": 197650.0,
-          "avg_time_on_page": 743.0
+          "pageviews": 293.0,
+          "sessions": 270.0,
+          "engagement_rate": 28.9,
+          "page_duration_seconds": 200185.0,
+          "avg_time_on_page": 683.2
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:data360:email-and-landing",
-          "pageviews": 33.0,
-          "sessions": 32.0,
-          "engagement_rate": 40.6,
-          "page_duration_seconds": 4533.0,
-          "avg_time_on_page": 137.4
+          "pageviews": 40.0,
+          "sessions": 39.0,
+          "engagement_rate": 43.6,
+          "page_duration_seconds": 5689.0,
+          "avg_time_on_page": 142.2
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:data360:messaging-copy-blocks",
-          "pageviews": 53.0,
-          "sessions": 55.0,
-          "engagement_rate": 49.1,
-          "page_duration_seconds": 6345.0,
-          "avg_time_on_page": 119.7
+          "pageviews": 56.0,
+          "sessions": 58.0,
+          "engagement_rate": 48.3,
+          "page_duration_seconds": 6437.0,
+          "avg_time_on_page": 114.9
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:data360:sales-readiness",
-          "pageviews": 135.0,
-          "sessions": 96.0,
-          "engagement_rate": 55.2,
-          "page_duration_seconds": 23777.0,
-          "avg_time_on_page": 176.1
+          "pageviews": 144.0,
+          "sessions": 102.0,
+          "engagement_rate": 53.9,
+          "page_duration_seconds": 24553.0,
+          "avg_time_on_page": 170.5
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:data360:social-and-pedia-media-assets",
-          "pageviews": 40.0,
-          "sessions": 44.0,
-          "engagement_rate": 43.2,
-          "page_duration_seconds": 12604.0,
-          "avg_time_on_page": 315.1
+          "pageviews": 42.0,
+          "sessions": 46.0,
+          "engagement_rate": 43.5,
+          "page_duration_seconds": 12620.0,
+          "avg_time_on_page": 300.5
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:headless360",
-          "pageviews": 817.0,
-          "sessions": 762.0,
-          "engagement_rate": 25.2,
-          "page_duration_seconds": 93974.0,
-          "avg_time_on_page": 115.0
+          "pageviews": 752.0,
+          "sessions": 697.0,
+          "engagement_rate": 26.7,
+          "page_duration_seconds": 93699.0,
+          "avg_time_on_page": 124.6
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:headless360:email-and-landing",
@@ -175,146 +175,146 @@
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:slack",
-          "pageviews": 333.0,
-          "sessions": 381.0,
-          "engagement_rate": 18.6,
-          "page_duration_seconds": 63218.0,
-          "avg_time_on_page": 189.8
+          "pageviews": 358.0,
+          "sessions": 403.0,
+          "engagement_rate": 21.6,
+          "page_duration_seconds": 69357.0,
+          "avg_time_on_page": 193.7
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:slack:email-and-landing",
-          "pageviews": 46.0,
-          "sessions": 49.0,
-          "engagement_rate": 18.4,
-          "page_duration_seconds": 8587.0,
-          "avg_time_on_page": 186.7
+          "pageviews": 54.0,
+          "sessions": 55.0,
+          "engagement_rate": 20.0,
+          "page_duration_seconds": 8685.0,
+          "avg_time_on_page": 160.8
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:slack:sales-readiness",
-          "pageviews": 47.0,
-          "sessions": 43.0,
-          "engagement_rate": 41.9,
-          "page_duration_seconds": 13358.0,
-          "avg_time_on_page": 284.2
+          "pageviews": 54.0,
+          "sessions": 53.0,
+          "engagement_rate": 41.5,
+          "page_duration_seconds": 13970.0,
+          "avg_time_on_page": 258.7
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:slack:social-and-paid-media-assets",
-          "pageviews": 50.0,
-          "sessions": 48.0,
-          "engagement_rate": 35.4,
-          "page_duration_seconds": 18278.0,
-          "avg_time_on_page": 365.6
+          "pageviews": 68.0,
+          "sessions": 69.0,
+          "engagement_rate": 31.9,
+          "page_duration_seconds": 21503.0,
+          "avg_time_on_page": 316.2
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:slack:messaging-copy-blocks",
-          "pageviews": 33.0,
-          "sessions": 32.0,
-          "engagement_rate": 34.4,
-          "page_duration_seconds": 7156.0,
-          "avg_time_on_page": 216.8
+          "pageviews": 41.0,
+          "sessions": 40.0,
+          "engagement_rate": 35.0,
+          "page_duration_seconds": 8105.0,
+          "avg_time_on_page": 197.7
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-activation",
-          "pageviews": 170.0,
-          "sessions": 136.0,
-          "engagement_rate": 29.4,
-          "page_duration_seconds": 4861.0,
-          "avg_time_on_page": 28.6
+          "pageviews": 195.0,
+          "sessions": 158.0,
+          "engagement_rate": 31.0,
+          "page_duration_seconds": 6505.0,
+          "avg_time_on_page": 33.4
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-activation:partner-kit",
-          "pageviews": 113.0,
-          "sessions": 114.0,
-          "engagement_rate": 43.0,
-          "page_duration_seconds": 16616.0,
-          "avg_time_on_page": 147.0
+          "pageviews": 127.0,
+          "sessions": 131.0,
+          "engagement_rate": 42.0,
+          "page_duration_seconds": 17101.0,
+          "avg_time_on_page": 134.7
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-activation:workshop",
-          "pageviews": 82.0,
-          "sessions": 61.0,
-          "engagement_rate": 34.4,
-          "page_duration_seconds": 8176.0,
-          "avg_time_on_page": 99.7
+          "pageviews": 94.0,
+          "sessions": 72.0,
+          "engagement_rate": 41.7,
+          "page_duration_seconds": 9665.0,
+          "avg_time_on_page": 102.8
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-service",
-          "pageviews": 451.0,
-          "sessions": 419.0,
-          "engagement_rate": 26.3,
-          "page_duration_seconds": 47190.0,
-          "avg_time_on_page": 104.6
+          "pageviews": 366.0,
+          "sessions": 336.0,
+          "engagement_rate": 32.1,
+          "page_duration_seconds": 47067.0,
+          "avg_time_on_page": 128.6
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-service:email-and-landing",
-          "pageviews": 62.0,
-          "sessions": 74.0,
-          "engagement_rate": 25.7,
-          "page_duration_seconds": 11095.0,
-          "avg_time_on_page": 179.0
+          "pageviews": 64.0,
+          "sessions": 77.0,
+          "engagement_rate": 24.7,
+          "page_duration_seconds": 11115.0,
+          "avg_time_on_page": 173.7
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-service:messaging-copy-blocks",
-          "pageviews": 86.0,
-          "sessions": 84.0,
-          "engagement_rate": 48.8,
-          "page_duration_seconds": 21727.0,
-          "avg_time_on_page": 252.6
+          "pageviews": 87.0,
+          "sessions": 85.0,
+          "engagement_rate": 48.2,
+          "page_duration_seconds": 21729.0,
+          "avg_time_on_page": 249.8
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-service:sales-readiness",
-          "pageviews": 345.0,
-          "sessions": 323.0,
-          "engagement_rate": 53.9,
-          "page_duration_seconds": 116486.0,
-          "avg_time_on_page": 337.6
+          "pageviews": 375.0,
+          "sessions": 356.0,
+          "engagement_rate": 52.0,
+          "page_duration_seconds": 124396.0,
+          "avg_time_on_page": 331.7
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:agentforce-service:social-and-paid-media-assets",
-          "pageviews": 76.0,
-          "sessions": 85.0,
-          "engagement_rate": 29.4,
-          "page_duration_seconds": 12464.0,
-          "avg_time_on_page": 164.0
+          "pageviews": 77.0,
+          "sessions": 86.0,
+          "engagement_rate": 30.2,
+          "page_duration_seconds": 12493.0,
+          "avg_time_on_page": 162.2
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:dreamforce",
-          "pageviews": 489.0,
-          "sessions": 433.0,
-          "engagement_rate": 24.9,
-          "page_duration_seconds": 35147.0,
-          "avg_time_on_page": 71.9
+          "pageviews": 472.0,
+          "sessions": 414.0,
+          "engagement_rate": 29.0,
+          "page_duration_seconds": 36743.0,
+          "avg_time_on_page": 77.8
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:dreamforce:email-and-landing",
-          "pageviews": 104.0,
-          "sessions": 113.0,
-          "engagement_rate": 27.4,
-          "page_duration_seconds": 18637.0,
-          "avg_time_on_page": 179.2
+          "pageviews": 119.0,
+          "sessions": 128.0,
+          "engagement_rate": 29.7,
+          "page_duration_seconds": 19318.0,
+          "avg_time_on_page": 162.3
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:dreamforce:messaging-copy-blocks",
-          "pageviews": 117.0,
-          "sessions": 120.0,
-          "engagement_rate": 40.8,
-          "page_duration_seconds": 22128.0,
-          "avg_time_on_page": 189.1
+          "pageviews": 128.0,
+          "sessions": 131.0,
+          "engagement_rate": 41.2,
+          "page_duration_seconds": 23386.0,
+          "avg_time_on_page": 182.7
         },
         {
           "path": "partners:consulting-partners-hub:campaign-kits:launchpad:dreamforce:social-media-posts",
-          "pageviews": 232.0,
-          "sessions": 223.0,
-          "engagement_rate": 36.8,
-          "page_duration_seconds": 60577.0,
-          "avg_time_on_page": 261.1
+          "pageviews": 254.0,
+          "sessions": 239.0,
+          "engagement_rate": 38.1,
+          "page_duration_seconds": 66126.0,
+          "avg_time_on_page": 260.3
         }
       ],
       "total": {
-        "pageviews": 12093.0,
-        "sessions": 10989.0,
-        "page_duration_seconds": 2390527.0,
-        "avg_time_on_page": 197.7
+        "pageviews": 13440.0,
+        "sessions": 12120.0,
+        "page_duration_seconds": 2547163.0,
+        "avg_time_on_page": 189.5
       }
     },
     {
@@ -323,26 +323,26 @@
       "pages": [
         {
           "path": "partners:consulting-partners-guidebook",
-          "pageviews": 3175.0,
-          "sessions": 3014.0,
-          "engagement_rate": 16.9,
-          "page_duration_seconds": 1353133.0,
-          "avg_time_on_page": 426.2
+          "pageviews": 3354.0,
+          "sessions": 3191.0,
+          "engagement_rate": 16.1,
+          "page_duration_seconds": 1361461.0,
+          "avg_time_on_page": 405.9
         },
         {
           "path": "partners:consulting-partners-hub:consulting-partners-guidebook",
-          "pageviews": 1444.0,
-          "sessions": 1391.0,
-          "engagement_rate": 27.6,
-          "page_duration_seconds": 1040397.0,
-          "avg_time_on_page": 720.5
+          "pageviews": 1719.0,
+          "sessions": 1655.0,
+          "engagement_rate": 27.1,
+          "page_duration_seconds": 1177654.0,
+          "avg_time_on_page": 685.1
         }
       ],
       "total": {
-        "pageviews": 4619.0,
-        "sessions": 4405.0,
-        "page_duration_seconds": 2393530.0,
-        "avg_time_on_page": 518.2
+        "pageviews": 5073.0,
+        "sessions": 4846.0,
+        "page_duration_seconds": 2539115.0,
+        "avg_time_on_page": 500.5
       }
     },
     {
@@ -351,26 +351,26 @@
       "pages": [
         {
           "path": "partners:consulting-partner-program",
-          "pageviews": 3811.0,
-          "sessions": 3219.0,
-          "engagement_rate": 40.5,
-          "page_duration_seconds": 1076603.0,
-          "avg_time_on_page": 282.5
+          "pageviews": 3880.0,
+          "sessions": 3296.0,
+          "engagement_rate": 40.0,
+          "page_duration_seconds": 1080217.0,
+          "avg_time_on_page": 278.4
         },
         {
           "path": "partners:consulting-partners-hub:consulting-partner-program",
-          "pageviews": 5796.0,
-          "sessions": 4133.0,
-          "engagement_rate": 39.1,
-          "page_duration_seconds": 1244022.0,
-          "avg_time_on_page": 214.6
+          "pageviews": 7571.0,
+          "sessions": 5411.0,
+          "engagement_rate": 38.5,
+          "page_duration_seconds": 1597892.0,
+          "avg_time_on_page": 211.1
         }
       ],
       "total": {
-        "pageviews": 9607.0,
-        "sessions": 7352.0,
-        "page_duration_seconds": 2320625.0,
-        "avg_time_on_page": 241.6
+        "pageviews": 11451.0,
+        "sessions": 8707.0,
+        "page_duration_seconds": 2678109.0,
+        "avg_time_on_page": 233.9
       }
     },
     {
@@ -379,44 +379,44 @@
       "pages": [
         {
           "path": "partners:find-a-consulting-partner",
-          "pageviews": 5102.0,
-          "sessions": 4783.0,
-          "engagement_rate": 22.3,
-          "page_duration_seconds": 1038430.0,
-          "avg_time_on_page": 203.5
+          "pageviews": 5945.0,
+          "sessions": 5557.0,
+          "engagement_rate": 23.0,
+          "page_duration_seconds": 1176592.0,
+          "avg_time_on_page": 197.9
         },
         {
           "path": "fde-partner-network (AgentExchange Dashboard)",
-          "pageviews": 10126.0,
-          "sessions": 8146.0,
+          "pageviews": 11481.0,
+          "sessions": 9128.0,
           "engagement_rate": null,
           "page_duration_seconds": null,
           "avg_time_on_page": null
         }
       ],
       "total": {
-        "pageviews": 15228.0,
-        "sessions": 12929.0,
-        "page_duration_seconds": 1038430.0,
-        "avg_time_on_page": 203.5
+        "pageviews": 17426.0,
+        "sessions": 14685.0,
+        "page_duration_seconds": 1176592.0,
+        "avg_time_on_page": 197.9
       }
     }
   ],
   "campaign_kits_form": {
     "top_page": {
       "path": "partners:consulting-partners-hub:campaign-kits",
-      "page_views": 5526.0,
-      "form_views": 429.0,
-      "form_completions": 275.0,
-      "pv_to_fv_pct": 7.8,
-      "fv_to_fc_pct": 64.1,
-      "pv_to_fc_pct": 5.0
+      "page_views": 6562.0,
+      "form_views": 553.0,
+      "form_completions": 522.0,
+      "pv_to_fv_pct": 8.4,
+      "fv_to_fc_pct": 94.4,
+      "pv_to_fc_pct": 8.0
     }
   },
   "page_clicks": [
     {
       "label": "All",
-      "clicks": 1531
+      "clicks": 1700
     },
     {
       "label": "System of Agency",
@@ -448,7 +448,7 @@
     },
     {
       "label": "Marketing Campaign Kits",
-      "clicks": 58
+      "clicks": 81
     },
     {
       "label": "The Headless 360 Opportunity for Partners",
@@ -456,62 +456,94 @@
     },
     {
       "label": "Agentic Enterprise Guidebook",
-      "clicks": 38
-    },
-    {
-      "label": "Press release",
-      "clicks": 38
+      "clicks": 47
     },
     {
       "label": "Consulting Partner Program",
-      "clicks": 32
+      "clicks": 43
+    },
+    {
+      "label": "Press release",
+      "clicks": 39
     },
     {
       "label": "Salesforce Headless 360: Partner Enablement Workshop",
       "clicks": 29
     },
     {
-      "label": "Unlocking the Power of Slack for Partners",
-      "clicks": 23
-    },
-    {
       "label": "Partner Branding Guide",
-      "clicks": 22
+      "clicks": 28
     },
     {
-      "label": "Partnerblazer",
-      "clicks": 18
+      "label": "Agentforce",
+      "clicks": 25
+    },
+    {
+      "label": "Unlocking the Power of Slack for Partners",
+      "clicks": 25
     },
     {
       "label": "Partner Community",
-      "clicks": 17
+      "clicks": 21
+    },
+    {
+      "label": "Slackforce",
+      "clicks": 21
+    },
+    {
+      "label": "Enablement Events",
+      "clicks": 20
+    },
+    {
+      "label": "Partnerblazer",
+      "clicks": 20
     },
     {
       "label": "Headless 360 Deep Dive: The Partner's Role & Customer Stories",
       "clicks": 16
     },
     {
+      "label": "Customer 360",
+      "clicks": 15
+    },
+    {
+      "label": "The Salesforce Platform Opportunity for Partners",
+      "clicks": 15
+    },
+    {
       "label": "New Series: Ecosystem Unscripted - An inside look at the Headless 360 opportunity for partners",
       "clicks": 14
     },
     {
-      "label": "Enablement Events",
+      "label": "Headless Toolkit",
       "clicks": 13
     },
     {
-      "label": "Agentforce",
-      "clicks": 11
+      "label": "Turn AI Opportunity into Business Outcomes",
+      "clicks": 13
     },
     {
       "label": "Introducing Salesforce Headless 360",
       "clicks": 11
     },
     {
+      "label": "Data 360",
+      "clicks": 10
+    },
+    {
+      "label": "Stay updated",
+      "clicks": 10
+    },
+    {
+      "label": "How Partners Break the AI Pilot Phase with Help Agent",
+      "clicks": 9
+    },
+    {
       "label": "Agentforce Implementation Ready curriculum",
       "clicks": 8
     },
     {
-      "label": "Stay updated",
+      "label": "New Series: Ecosystem Unscripted - An inside look at the Salesforce Platform opportunity for partners",
       "clicks": 8
     },
     {
@@ -519,23 +551,15 @@
       "clicks": 7
     },
     {
-      "label": "The Salesforce Platform Opportunity for Partners",
-      "clicks": 7
-    },
-    {
       "label": "Agentforce Sales Pocket Guide",
       "clicks": 6
     },
     {
-      "label": "Customer 360",
+      "label": "Meet the new Slack where AI works: Partner enablement webinar",
       "clicks": 6
     },
     {
-      "label": "How Partners Break the AI Pilot Phase with Help Agent",
-      "clicks": 6
-    },
-    {
-      "label": "Slackforce",
+      "label": "Salesforce Platform: Partner Enablement Workshop",
       "clicks": 6
     },
     {
@@ -543,7 +567,11 @@
       "clicks": 5
     },
     {
-      "label": "Meet the new Slack where AI works: Partner enablement webinar",
+      "label": "Data 360 Implementation Ready curriculum",
+      "clicks": 5
+    },
+    {
+      "label": "Meet the new Slack where AI works: Partner webinar slides",
       "clicks": 5
     },
     {
@@ -555,19 +583,15 @@
       "clicks": 4
     },
     {
-      "label": "Data 360 Implementation Ready curriculum",
+      "label": "Introducing Salesforce Platform",
       "clicks": 4
     },
     {
-      "label": "Headless Toolkit",
+      "label": "Salesforce Platform Deep Dive: The Partner's Role & Customer Stories",
       "clicks": 4
     },
     {
-      "label": "Meet the new Slack where AI works: Partner webinar slides",
-      "clicks": 4
-    },
-    {
-      "label": "New Series: Ecosystem Unscripted - An inside look at the Salesforce Platform opportunity for partners",
+      "label": "Slack Partner Pocket Guide",
       "clicks": 4
     },
     {
@@ -575,19 +599,7 @@
       "clicks": 3
     },
     {
-      "label": "Data 360",
-      "clicks": 3
-    },
-    {
       "label": "Data 360 Technical Release Enablement",
-      "clicks": 3
-    },
-    {
-      "label": "Introducing Salesforce Platform",
-      "clicks": 3
-    },
-    {
-      "label": "Slack Partner Pocket Guide",
       "clicks": 3
     },
     {
@@ -623,11 +635,7 @@
       "clicks": 2
     },
     {
-      "label": "Salesforce Platform Deep Dive: The Partner's Role & Customer Stories",
-      "clicks": 2
-    },
-    {
-      "label": "Salesforce Platform: Partner Enablement Workshop",
+      "label": "Salesforce Partners",
       "clicks": 2
     },
     {
@@ -667,6 +675,18 @@
       "clicks": 1
     },
     {
+      "label": "Help customers become an Agentic Enterprise",
+      "clicks": 1
+    },
+    {
+      "label": "I don\u00e2\u0080\u0099t have reliable details on LEAP Consulting\u00e2\u0080\u0099s specific offerings from what I can access here. In general, a Salesforce consulting partner can help you with things like implementation, integrations, data migration, customization, and ongoing optimization/training.",
+      "clicks": 1
+    },
+    {
+      "label": "I understand you want to connect with support at Salesforce. Please visit https://help.salesforce.com for customer support.",
+      "clicks": 1
+    },
+    {
       "label": "I\u00e2\u0080\u0099m not seeing a specific \u00e2\u0080\u009cAug 5\u00e2\u0080\u009d workshop registration link in our public pages.",
       "clicks": 1
     },
@@ -683,7 +703,23 @@
       "clicks": 1
     },
     {
+      "label": "Salesforce Partner Directory",
+      "clicks": 1
+    },
+    {
+      "label": "Salesforce+",
+      "clicks": 1
+    },
+    {
+      "label": "Sure. On the Find a consulting partner page:",
+      "clicks": 1
+    },
+    {
       "label": "The NEW Consulting Listing Experience on AgentExchange is now live!",
+      "clicks": 1
+    },
+    {
+      "label": "Worldwide",
       "clicks": 1
     },
     {
