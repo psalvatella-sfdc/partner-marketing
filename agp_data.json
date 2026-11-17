@@ -6,7 +6,7 @@
     "start": "2026-02-01",
     "end": "2026-11-16",
     "period_label": "FY2027 YTD",
-    "generated_at": "2026-11-17T19:41:23.300903Z"
+    "generated_at": "2026-11-17T19:57:34.684220Z"
   },
   "goals": {
     "total_pageviews": 75000,
@@ -399,6 +399,98 @@
         "sessions": 14685.0,
         "page_duration_seconds": 1176592.0,
         "avg_time_on_page": 197.9
+      }
+    },
+    {
+      "id": "gsi-pages",
+      "label": "GROUP 6 \u2014 GSI Pages",
+      "pages": [
+        {
+          "path": "partners:genesys",
+          "pageviews": 1788.0,
+          "sessions": 1765.0,
+          "engagement_rate": 27.5,
+          "page_duration_seconds": 559764.0,
+          "avg_time_on_page": 313.1
+        },
+        {
+          "path": "partners:databricks",
+          "pageviews": 1911.0,
+          "sessions": 1758.0,
+          "engagement_rate": 26.2,
+          "page_duration_seconds": 701804.0,
+          "avg_time_on_page": 367.2
+        },
+        {
+          "path": "partners:accenture",
+          "pageviews": 1589.0,
+          "sessions": 1504.0,
+          "engagement_rate": 25.2,
+          "page_duration_seconds": 279455.0,
+          "avg_time_on_page": 175.9
+        },
+        {
+          "path": "partners:ibm",
+          "pageviews": 676.0,
+          "sessions": 660.0,
+          "engagement_rate": 21.7,
+          "page_duration_seconds": 85123.0,
+          "avg_time_on_page": 125.9
+        },
+        {
+          "path": "partners:slalom",
+          "pageviews": 630.0,
+          "sessions": 599.0,
+          "engagement_rate": 24.7,
+          "page_duration_seconds": 131450.0,
+          "avg_time_on_page": 208.7
+        },
+        {
+          "path": "partners:pwc",
+          "pageviews": 530.0,
+          "sessions": 513.0,
+          "engagement_rate": 23.4,
+          "page_duration_seconds": 70381.0,
+          "avg_time_on_page": 132.8
+        },
+        {
+          "path": "partners:slalom:cmo-guide",
+          "pageviews": 268.0,
+          "sessions": 242.0,
+          "engagement_rate": 29.8,
+          "page_duration_seconds": 35228.0,
+          "avg_time_on_page": 131.4
+        },
+        {
+          "path": "partners:slalom:behind-the-curtain",
+          "pageviews": 155.0,
+          "sessions": 145.0,
+          "engagement_rate": 32.4,
+          "page_duration_seconds": 13951.0,
+          "avg_time_on_page": 90.0
+        },
+        {
+          "path": "partners:accenture:hbr-life-sciences",
+          "pageviews": 46.0,
+          "sessions": 41.0,
+          "engagement_rate": 36.6,
+          "page_duration_seconds": 3208.0,
+          "avg_time_on_page": 69.7
+        },
+        {
+          "path": "form:partners:ibm-the-state-of-salesforce-2025-2026-report",
+          "pageviews": 18.0,
+          "sessions": 18.0,
+          "engagement_rate": 33.3,
+          "page_duration_seconds": 2749.0,
+          "avg_time_on_page": 152.7
+        }
+      ],
+      "total": {
+        "pageviews": 7611.0,
+        "sessions": 7245.0,
+        "page_duration_seconds": 1883113.0,
+        "avg_time_on_page": 247.4
       }
     }
   ],
