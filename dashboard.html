@@ -820,7 +820,7 @@ loadData();
   function tm(n){ if (n == null) return '\u2014'; var m = Math.floor(n/60), s = Math.round(n%60); return m + 'm ' + s + 's'; }
   function row(l, r, cls){ return '<tr class="' + cls + '"><td>' + l + '</td><td>' + f(r.pageviews) + '</td><td>' + f(r.sessions) + '</td><td>' + p(r.engagement_rate) + '</td><td>' + tm(r.avg_time_on_page) + '</td></tr>'; }
   fetch('q3_data.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(d){
-    var h = '<p>Period: ' + d.period + '</p><table><thead><tr><th>Page group</th><th>Pageviews</th><th>Sessions</th><th>Engagement rate</th><th>Avg time on page</th></tr></thead><tbody>';
+    var h = '<p>Period: ' + d.period + '</p><table><thead><tr><th>To-Partner</th><th>Pageviews</th><th>Sessions</th><th>Engagement rate</th><th>Avg time on page</th></tr></thead><tbody>';
     d.groups.forEach(function(g){ h += row(g.label, g, 'page-row'); });
     h += row(d.to_customer.label, d.to_customer.total, 'group-header');
     d.to_customer.pages.forEach(function(g){ h += row('&nbsp;&nbsp;' + g.label, g, 'page-row'); });
