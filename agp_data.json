@@ -6,7 +6,7 @@
     "start": "2026-02-01",
     "end": "2026-11-16",
     "period_label": "FY2027 YTD",
-    "generated_at": "2026-11-17T18:35:28.228782Z"
+    "generated_at": "2026-11-17T19:41:23.300903Z"
   },
   "goals": {
     "total_pageviews": 75000,
@@ -375,7 +375,7 @@
     },
     {
       "id": "find-a-consulting-partner",
-      "label": "GROUP 5 \u2014 Find a Consulting Partner",
+      "label": "GROUP 5 \u2014 To-Customer",
       "pages": [
         {
           "path": "partners:find-a-consulting-partner",
