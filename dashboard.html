@@ -487,6 +487,7 @@
   </table>
 </main>
 </div><!-- /tab-clicks -->
+<div class="tab-panel" id="tab-q3">## Q3 Traffic<div id="q3-container">Loading...</div></div>
 <div class="tab-panel" id="tab-heatmap">
   ## Consulting Partners Hub &mdash; Click Heatmap
   <p style="color:#666;font-size:0.9rem;">Click intensity by page section on www.salesforce.com/partners/consulting-partners-hub/</p>
@@ -801,6 +802,32 @@ async function loadData() {
 }
 
 loadData();
+</script>
+<script>
+(function(){
+  var btn = Array.prototype.find.call(document.querySelectorAll('button, a, div'), function(b){
+    return b.children.length === 0 && b.textContent.trim() === 'Click Heatmap'; });
+  if (btn) {
+    var c = document.createElement('div');
+    c.innerHTML = btn.outerHTML.replace(/heatmap/g, 'q3').replace('Click Heatmap', 'Q3');
+    var nb = c.firstChild; btn.parentNode.insertBefore(nb, btn.nextSibling);
+    nb.addEventListener('click', function(){ btn.parentNode.querySelectorAll('.active').forEach(function(x){ x.classList.remove('active'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      nb.classList.add('active'); document.getElementById('tab-q3').classList.add('active'); });
+  }
+  function f(n){ return n == null ? '\u2014' : Math.round(n).toLocaleString(); }
+  function p(n){ return n == null ? '\u2014' : n.toFixed(1) + '%'; }
+  function tm(n){ if (n == null) return '\u2014'; var m = Math.floor(n/60), s = Math.round(n%60); return m + 'm ' + s + 's'; }
+  function row(l, r, cls){ return '<tr class="' + cls + '"><td>' + l + '</td><td>' + f(r.pageviews) + '</td><td>' + f(r.sessions) + '</td><td>' + p(r.engagement_rate) + '</td><td>' + tm(r.avg_time_on_page) + '</td></tr>'; }
+  fetch('q3_data.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(d){
+    var h = '<p>Period: ' + d.period + '</p><table><thead><tr><th>Page group</th><th>Pageviews</th><th>Sessions</th><th>Engagement rate</th><th>Avg time on page</th></tr></thead><tbody>';
+    d.groups.forEach(function(g){ h += row(g.label, g, 'page-row'); });
+    h += row(d.to_customer.label, d.to_customer.total, 'group-header');
+    d.to_customer.pages.forEach(function(g){ h += row('&nbsp;&nbsp;' + g.label, g, 'page-row'); });
+    h += row('GRAND TOTAL', d.grand_total, 'group-total') + '</tbody></table>';
+    document.getElementById('q3-container').innerHTML = h;
+  }).catch(function(e){ document.getElementById('q3-container').textContent = 'Could not load q3_data.json'; });
+})();
 </script>
 </body>
 </html>

@@ -1,0 +1,92 @@
+{
+ "period": "Aug 1 \u2013 Oct 31, 2026",
+ "groups": [
+  {
+   "label": "Consulting Partners Hub",
+   "pageviews": 1470.0,
+   "sessions": 1542.0,
+   "engagement_rate": 16.5,
+   "avg_time_on_page": 185.2
+  },
+  {
+   "label": "Campaign Kits",
+   "pageviews": 8728.0,
+   "sessions": 8054.0,
+   "engagement_rate": 27.5,
+   "avg_time_on_page": 158.3
+  },
+  {
+   "label": "Consulting Partner Program",
+   "pageviews": 4285.0,
+   "sessions": 3074.0,
+   "engagement_rate": 39.7,
+   "avg_time_on_page": 242.0
+  },
+  {
+   "label": "Consulting Partners Guidebook",
+   "pageviews": 873.0,
+   "sessions": 878.0,
+   "engagement_rate": 25.6,
+   "avg_time_on_page": 989.6
+  },
+  {
+   "label": "GSI Pages",
+   "pageviews": 1772.0,
+   "sessions": 1766.0,
+   "engagement_rate": 27.6,
+   "avg_time_on_page": 161.2
+  }
+ ],
+ "to_customer": {
+  "label": "To-Customer",
+  "total": {
+   "pageviews": 15639.0,
+   "sessions": 14319.0,
+   "engagement_rate": 27.9,
+   "avg_time_on_page": 204.2
+  },
+  "pages": [
+   {
+    "label": "Find a Consulting Partner",
+    "pageviews": 4880.0,
+    "sessions": 4589.0,
+    "engagement_rate": 22.3,
+    "avg_time_on_page": 211.2
+   },
+   {
+    "label": "Partners Homepage",
+    "pageviews": 6641.0,
+    "sessions": 6217.0,
+    "engagement_rate": 32.5,
+    "avg_time_on_page": 169.1
+   },
+   {
+    "label": "Ecosystem Unscripted",
+    "pageviews": 315.0,
+    "sessions": 335.0,
+    "engagement_rate": 20.0,
+    "avg_time_on_page": 837.4
+   },
+   {
+    "label": "AppExchange Consulting",
+    "pageviews": 401.0,
+    "sessions": 398.0,
+    "engagement_rate": null,
+    "avg_time_on_page": null
+   },
+   {
+    "label": "FDE Partner Network",
+    "pageviews": 3402.0,
+    "sessions": 2780.0,
+    "engagement_rate": null,
+    "avg_time_on_page": null
+   }
+  ]
+ },
+ "grand_total": {
+  "pageviews": 32767.0,
+  "sessions": 29633.0,
+  "engagement_rate": 28.3,
+  "avg_time_on_page": 214.7
+ }
+}
