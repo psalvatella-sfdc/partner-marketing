@@ -822,6 +822,15 @@ loadData();
   fetch('q3_data.json?t=' + Date.now()).then(function(r){ return r.json(); }).then(function(d){
     var h = '<p>Period: ' + d.period + '</p><table><thead><tr><th>To-Partner</th><th>Pageviews</th><th>Sessions</th><th>Engagement rate</th><th>Avg time on page</th></tr></thead><tbody>';
     d.groups.forEach(function(g){ h += row(g.label, g, 'page-row'); });
+    var tp = {pageviews:0, sessions:0}, ew = 0, es = 0, dw = 0, dp = 0;
+    d.groups.forEach(function(g){
+      tp.pageviews += g.pageviews || 0; tp.sessions += g.sessions || 0;
+      if (g.engagement_rate != null) { ew += g.engagement_rate * g.sessions; es += g.sessions; }
+      if (g.avg_time_on_page != null) { dw += g.avg_time_on_page * g.pageviews; dp += g.pageviews; }
+    });
+    tp.engagement_rate = es ? ew / es : null;
+    tp.avg_time_on_page = dp ? dw / dp : null;
+    h += row('To-Partner Total', tp, 'group-header');
     h += row(d.to_customer.label, d.to_customer.total, 'group-header');
     d.to_customer.pages.forEach(function(g){ h += row('&nbsp;&nbsp;' + g.label, g, 'page-row'); });
     h += row('GRAND TOTAL', d.grand_total, 'group-total') + '</tbody></table>';
